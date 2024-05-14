@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 
 const db = () => {
     try {
-        const url = process.env.MONGODB_URL;
+        const url = process.env.MONGODB_URI
+
+        console.log(url)
 
         mongoose.connect(url);
         mongoose.connection.once("open", () => {
