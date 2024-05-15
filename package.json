@@ -1,6 +1,5 @@
 {
   "name": "wokchop-server-react-native",
-  "packageManager": "yarn@4.2.2",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
