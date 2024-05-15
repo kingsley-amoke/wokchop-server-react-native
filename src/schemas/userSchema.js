@@ -19,6 +19,12 @@ const skillsSchema = new mongoose.Schema({
     }
 })
 
+const statusSchema = new mongoose.Schema({
+    isVerified: Boolean,
+    isVIP: Boolean
+})
+
+
 const userSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
@@ -29,7 +35,7 @@ const userSchema = new mongoose.Schema({
     nin: { type: String,},
     image: { type: String },
     phone: { type: String, },
-    status: { type: String, default: 'unverified'},
+    status: statusSchema,
     gender: String,
     guarantors: [GuarantorSchema],
     jobs: [jobSchema],
