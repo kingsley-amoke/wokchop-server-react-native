@@ -23,7 +23,7 @@ const JobController = {
     //get one job
     getJob: async(req, res) => {
        try {
-         const job = await Job.findById(req.params.id)
+         const job = await Job.findOne({_id:req.params.id})
             if (job) {
                 res.status(200).json(job)
             } else {
@@ -47,7 +47,7 @@ const JobController = {
     },
     updateJob: async(req, res) => {
        try {
-         const job = await Job.findByIdAndUpdate(req.body)
+         const job = await Job.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
             if (job) {
                 res.status(200).json(job)
             } else {
@@ -59,7 +59,7 @@ const JobController = {
     },
     deleteJob: async(req, res) => {
        try {
-         const job = await Job.findByIdAndDelete()
+         const job = await Job.findOneAndDelete({_id: req.params.id})
             if (job) {
                 res.status(200).json(job)
             } else {

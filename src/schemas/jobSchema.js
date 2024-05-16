@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const userSchema = require('./userSchema')
+const categorySchema = require('./categorySchema')
 
 const jobSchema = new mongoose.Schema({
     title: {
@@ -14,7 +15,11 @@ const jobSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    salary: {
+    minPay: {
+        type: Number,
+        required: true
+    },
+    maxPay: {
         type: Number,
         required: true
     },
@@ -26,12 +31,12 @@ const jobSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    status: {
-        type: String,
-        default: 'open'
+    isOpen: {
+        type: Boolean,
+        default: true
     },
     employer: userSchema,
-    keywords: String,
+    categories: [categorySchema],
 })
 
 module.exports = jobSchema
