@@ -53,9 +53,11 @@ const CategoryController = {
     //update category
     updateCategory: async(req, res) => {
        try {
-         const category = await Category.findByIdAndUpdate(req.body)
+        
+         const category = await Category.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+         console.log(category)
             if (category) {
-                res.status(200).json(job)
+                res.status(200).json(category)
             } else {
                 res.status(500).json("An error occurred")
             }
@@ -67,9 +69,9 @@ const CategoryController = {
     //delete category
     deleteCategory: async(req, res) => {
        try {
-         const category = await Category.findByIdAndDelete()
+         const category = await Category.findOneAndDelete({_id: req.params.id})
             if (category) {
-                res.status(200).json(job)
+                res.status(200).json(category)
             } else {
                 res.status(500).json("An error occurred")
             }
