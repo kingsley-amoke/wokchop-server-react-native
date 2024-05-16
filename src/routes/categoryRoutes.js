@@ -22,4 +22,4 @@ router.delete("/api/users/category/:id", CategoryController.deleteCategory);
 
 
 
-module.exports.userRouter = router;
+module.exports.CategoryRouter = router;

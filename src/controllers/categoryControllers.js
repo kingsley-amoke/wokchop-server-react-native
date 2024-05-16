@@ -8,8 +8,8 @@ const CategoryController = {
     getCategories: async(req, res) => {
         try {
             const categories = await Category.find()
-            if (jobs.length > 0) {
-                res.status(200).json(jobs)
+            if (categories.length > 0) {
+                res.status(200).json(categories)
             } else {
                 res.status(404).json("No category found")
             }
@@ -22,10 +22,11 @@ const CategoryController = {
 
     //get one job
     getCategory: async(req, res) => {
+       
        try {
-         const job = await Category.findById()
-            if (job.length > 0) {
-                res.status(200).json(job)
+         const category = await Category.findOne({_id: req.params.id})
+            if (category) {
+                res.status(200).json(category)
             } else {
                 res.status(404).json("No category found")
             }
@@ -37,9 +38,10 @@ const CategoryController = {
     //create category
     createCategory: async(req, res) => {
         try {
-             const job = await Category.create(req.body)
-            if (job.length > 0) {
-                res.status(200).json(job)
+             const category = await Category.create(req.body)
+             console.log(category)
+            if (category) {
+                res.status(200).json(category)
             } else {
                 res.status(500).json("Something went wrong")
             }
@@ -51,8 +53,8 @@ const CategoryController = {
     //update category
     updateCategory: async(req, res) => {
        try {
-         const job = await Category.findByIdAndUpdate(req.body)
-            if (job.length > 0) {
+         const category = await Category.findByIdAndUpdate(req.body)
+            if (category) {
                 res.status(200).json(job)
             } else {
                 res.status(500).json("An error occurred")
@@ -65,8 +67,8 @@ const CategoryController = {
     //delete category
     deleteCategory: async(req, res) => {
        try {
-         const job = await Category.findByIdAndDelete()
-            if (job.length > 0) {
+         const category = await Category.findByIdAndDelete()
+            if (category) {
                 res.status(200).json(job)
             } else {
                 res.status(500).json("An error occurred")

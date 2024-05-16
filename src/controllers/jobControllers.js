@@ -23,8 +23,8 @@ const JobController = {
     //get one job
     getJob: async(req, res) => {
        try {
-         const job = await Job.findById()
-            if (job.length > 0) {
+         const job = await Job.findById(req.params.id)
+            if (job) {
                 res.status(200).json(job)
             } else {
                 res.status(404).json("No jobs found")
@@ -36,7 +36,7 @@ const JobController = {
     createJob: async(req, res) => {
         try {
              const job = await Job.create(req.body)
-            if (job.length > 0) {
+            if (job) {
                 res.status(200).json(job)
             } else {
                 res.status(500).json("Something went wrong")
@@ -48,7 +48,7 @@ const JobController = {
     updateJob: async(req, res) => {
        try {
          const job = await Job.findByIdAndUpdate(req.body)
-            if (job.length > 0) {
+            if (job) {
                 res.status(200).json(job)
             } else {
                 res.status(500).json("An error occurred")
@@ -60,7 +60,7 @@ const JobController = {
     deleteJob: async(req, res) => {
        try {
          const job = await Job.findByIdAndDelete()
-            if (job.length > 0) {
+            if (job) {
                 res.status(200).json(job)
             } else {
                 res.status(500).json("An error occurred")

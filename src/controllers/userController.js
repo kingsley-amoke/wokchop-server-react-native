@@ -59,7 +59,7 @@ const UserController = {
 
         try {
             const user = await User.create(data)
-            if (user.length > 0) {
+            if (user) {
               res.status(201).json(user);
             } else {
               res.status(500).json({ message: "Something went wrong" });
@@ -110,7 +110,7 @@ const UserController = {
     deleteUser: async (req, res) => {
         try {
             const user = await User.findOneAndDelete(req.params.id)
-             if (user.length > 0) {
+             if (user) {
                res.status(200).json(user);
              } else {
                res.status(500).json({ message: "Something went wrong" });

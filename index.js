@@ -8,6 +8,7 @@ const UserController = require("./src/controllers/userController");
 const { userRouter } = require("./src/routes/userRouter");
 const { jobRouter } = require("./src/routes/jobRouter");
 const { generateAccessToken } = require("./src/auth/token");
+const { CategoryRouter } = require("./src/routes/categoryRoutes");
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ db();
 
 app.use(userRouter);
 app.use(jobRouter);
+app.use(CategoryRouter)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`);

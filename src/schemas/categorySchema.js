@@ -4,7 +4,7 @@ const jobSchema = require("./jobSchema");
 const categorySchema = new mongoose.Schema({
 name: String,
 icon: String,
-jobs: jobSchema
+jobs: [jobSchema]
 
 })
 
