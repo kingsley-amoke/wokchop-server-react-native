@@ -23,10 +23,6 @@ const jobSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    company: {
-        type: String,
-       
-    },
     date: {
         type: Date,
         default: Date.now
