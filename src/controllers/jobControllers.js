@@ -35,6 +35,7 @@ const JobController = {
     },
     createJob: async(req, res) => {
         try {
+          console.log(req.body)
              const job = await Job.create(req.body)
             if (job) {
                 res.status(200).json(job)
