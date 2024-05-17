@@ -42,7 +42,7 @@ const JobController = {
                 res.status(500).json("Something went wrong")
             }
         } catch {
-            res.status(500).json(error)
+            res.status(500)
         }
     },
     updateJob: async(req, res) => {
