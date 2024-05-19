@@ -91,7 +91,7 @@ addJob: async(req, res) => {
         const user = await User.findOne({email: req.params.id})
         if (user) {
             user.jobs.push(req.body.jobs)
-            await User.save()
+            await user.save()
             res.status(200).json(user)
         } else {
             res.status(500).json("An error occurred")
