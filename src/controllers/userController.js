@@ -85,6 +85,21 @@ const UserController = {
         }
     },
 
+//update job field
+addJob: async(req, res) => {
+    try {
+        const category = await Category.findOne({email: req.params.id})
+        if (category) {
+            category.jobs.push(req.body.jobs)
+            await category.save()
+            res.status(200).json(category)
+        } else {
+            res.status(500).json("An error occurred")
+        }
+    } catch (error) {
+        res.status(500).json(error)
+    }
+},
     updatePassword: async (req, res) => {
         
         const { password } = req.body
