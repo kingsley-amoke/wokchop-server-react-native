@@ -15,6 +15,9 @@ router.post("/api/category/create", CategoryController.createCategory);
 //update a category
 router.put("/api/category/update/:id", CategoryController.updateCategory);
 
+//update a category job field
+router.put("/api/category/update/jobs/:id", CategoryController.addJob);
+
 
 //delete a category
 router.delete("/api/users/category/:id", CategoryController.deleteCategory);

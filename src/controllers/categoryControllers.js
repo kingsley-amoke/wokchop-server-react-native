@@ -66,6 +66,22 @@ const CategoryController = {
        }
     },
 
+    //update job field
+    addJob: async(req, res) => {
+        try {
+            const category = await Category.findOne({_id: req.params.id})
+            if (category) {
+                category.jobs.push(req.body)
+                await category.save()
+                res.status(200).json(category)
+            } else {
+                res.status(500).json("An error occurred")
+            }
+        } catch (error) {
+            res.status(500).json(error)
+        }
+    },
+
     //delete category
     deleteCategory: async(req, res) => {
        try {
