@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
-const userSchema = require('./userSchema')
-const categorySchema = require('./categorySchema')
+
 
 const jobSchema = new mongoose.Schema({
     title: {
@@ -31,8 +30,8 @@ const jobSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
-    employer: userSchema,
-    categories: [categorySchema],
+    employer: Object,
+    categories: [String],
 })
 
 module.exports = jobSchema
