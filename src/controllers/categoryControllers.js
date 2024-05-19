@@ -71,7 +71,7 @@ const CategoryController = {
         try {
             const category = await Category.findOne({_id: req.params.id})
             if (category) {
-                category.jobs.push(req.body)
+                category.jobs.push(req.body.jobs)
                 await category.save()
                 res.status(200).json(category)
             } else {
