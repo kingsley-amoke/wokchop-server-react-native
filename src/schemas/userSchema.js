@@ -32,6 +32,7 @@ const userSchema = new mongoose.Schema({
     password: { type: String,},
     role: { type: String,},
     address: { type: String,},
+    location: String,
     nin: { type: String,},
     image: { type: String },
     phone: { type: String, },
