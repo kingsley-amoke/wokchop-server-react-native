@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
     lastName: { type: String, required: true },
     email: { type: String, required: true },
     password: { type: String,},
-    bio: String,
+    bio: {type: String},
     role: { type: String,},
     address: { type: String,},
     location: String,
@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
     gender: String,
     guarantors: [GuarantorSchema],
     jobs: [jobSchema],
-    skills: [skillsSchema]
+    skills: [String]
 })
 
 module.exports = userSchema
