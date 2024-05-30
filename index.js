@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 5001;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// db();
+db();
 upload()
 
 app.use(userRouter);
