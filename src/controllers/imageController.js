@@ -6,12 +6,16 @@ const imageController = {
         try {
 
             const imageUrl = req.body.url
+            const user = req.body.user
+            const type = req.body.type
 
             const imageArray = imageUrl.split('/')
 
             const imageName = imageArray[imageArray.length - 1]
 
-           const response = await upload(imageUrl, imageName)
+            const public_id = `${user}-${type}-${imageName}`
+
+           const response = await upload(imageUrl, public_id)
 
            res.status(200).json(response)
         } catch (error) {
