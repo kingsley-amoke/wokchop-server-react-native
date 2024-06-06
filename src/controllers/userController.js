@@ -93,8 +93,6 @@ addNotification: async(req, res) => {
     try {
         const user = await User.findOne({email: req.params.id})
         if (user) {
-
-            if(!user.notifications) user.notifications = []
             
             user.notifications.push(req.body.notifications)
             await user.save()
