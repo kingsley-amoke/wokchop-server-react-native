@@ -76,9 +76,12 @@ const UserController = {
 
         try {
             const user = await User.findOneAndUpdate({ email: req.params.id},req.body,{new: true})
-        if (!user) return res.status(500).json({ message: "Something went wrong" });
-   
-            res.status(200).json(user);
+
+            if (user) {
+                res.status(200).json(user)
+            } else {
+                res.status(500).json({ message: "Something went wrong" });
+            }
         
         } catch (error) {
             res.status(500).json(error)
