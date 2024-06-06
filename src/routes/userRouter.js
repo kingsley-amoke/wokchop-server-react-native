@@ -18,6 +18,9 @@ router.post("/api/users/create", UserController.addUser);
 //update a user
 router.put("/api/users/update/:id", UserController.updateUser);
 
+//update a user notification field
+router.put("/api/users/update/notifications/:id", UserController.addJob);
+
 //update a user job field
 router.put("/api/users/update/jobs/:id", UserController.addJob);
 

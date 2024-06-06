@@ -88,6 +88,22 @@ const UserController = {
         }
     },
 
+    //update notification field
+addNotification: async(req, res) => {
+    try {
+        const user = await User.findOne({email: req.params.id})
+        if (user) {
+            user.notifications.push(req.body.notifications)
+            await user.save()
+            res.status(200).json(user)
+        } else {
+            res.status(500).json("An error occurred")
+        }
+    } catch (error) {
+        res.status(500).json(error)
+    }
+},
+
 //update job field
 addJob: async(req, res) => {
     try {
