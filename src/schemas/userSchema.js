@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const jobSchema = require('./jobSchema')
+const notificationSchema = require('./notificationSchema')
 
 const GuarantorSchema = new mongoose.Schema({
     name: {
@@ -41,7 +42,8 @@ const userSchema = new mongoose.Schema({
     gender: String,
     guarantors: [GuarantorSchema],
     jobs: [jobSchema],
-    skills: [String]
+    skills: [String],
+    notifications: [notificationSchema]
 })
 
 module.exports = userSchema

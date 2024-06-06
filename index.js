@@ -11,6 +11,7 @@ const { generateAccessToken } = require("./src/auth/token");
 const { CategoryRouter } = require("./src/routes/categoryRoutes");
 const upload = require("./src/helpers/cloudinary");
 const { imageRouter } = require("./src/routes/imageRoutes");
+const { notificationRouter } = require("./src/routes/notificationRouter");
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.use(userRouter);
 app.use(jobRouter);
 app.use(CategoryRouter)
 app.use(imageRouter);
+app.use(notificationRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`);
