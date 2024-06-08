@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
   phone: { type: String },
   walletBalance: { type: String, default: "0" },
   referralBalance: { type: String, default: "0" },
-  referalls: [String],
+  referrals: [String],
   status: statusSchema,
   gender: String,
   guarantors: [GuarantorSchema],
