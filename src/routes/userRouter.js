@@ -24,6 +24,9 @@ router.put("/api/users/update/notifications/:id", UserController.addNotification
 //update a user job field
 router.put("/api/users/update/jobs/:id", UserController.addJob);
 
+//update a user balance
+router.put("/api/users/update/wallet/:id", UserController.addJob);
+
 //update password
 router.put("/api/users/auth/password/:id", UserController.updatePassword);
 

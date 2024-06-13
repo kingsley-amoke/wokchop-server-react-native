@@ -120,6 +120,20 @@ addJob: async(req, res) => {
         res.status(500).json(error)
     }
 },
+updateBalance: async(req, res) => {
+    try {
+        const user = await User.findOne({email: req.params.id})
+        if (user) {
+            user.walletBalance.push(req.body)
+            await user.save()
+            res.status(200).json(user)
+        } else {
+            res.status(500).json("An error occurred")
+        }
+    } catch (error) {
+        res.status(500).json(error)
+    }
+},
     updatePassword: async (req, res) => {
         
         const { password } = req.body
