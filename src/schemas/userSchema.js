@@ -61,7 +61,8 @@ const userSchema = new mongoose.Schema({
   jobs: [jobSchema],
   skills: [String],
   notifications: [notificationSchema],
-  bankDetails: userBankSchema
+  bankDetails: userBankSchema,
+  isAdmin: {type: Boolean, default: false}
 });
 
 module.exports = userSchema;
