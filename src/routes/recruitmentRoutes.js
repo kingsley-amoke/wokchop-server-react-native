@@ -5,18 +5,18 @@ const RecruitmentController = require("../controllers/recruitmentControllers");
 const router = Router();
 
 //get all Recruitments
-router.get("/api/Recruitments", RecruitmentController.getRecruitments);
+router.get("/api/recruitments", RecruitmentController.getRecruitments);
 
 //get Recruitment by id
-router.get("/api/Recruitments/:id", RecruitmentController.getRecruitment);
+router.get("/api/recruitments/:id", RecruitmentController.getRecruitment);
 
 //create a new Recruitment
-router.post("/api/Recruitments/create", RecruitmentController.createRecruitment);
+router.post("/api/recruitments/create", RecruitmentController.createRecruitment);
 
 //update a Recruitment
-router.put("/api/Recruitments/update/:id", RecruitmentController.updateRecruitment);
+router.put("/api/recruitments/update/:id", RecruitmentController.updateRecruitment);
 
 //delete a Recruitment
-router.delete("/api/Recruitments/delete/:id", RecruitmentController.deleteRecruitment);
+router.delete("/api/recruitments/delete/:id", RecruitmentController.deleteRecruitment);
 
 module.exports.RecruitmentRouter = router;
