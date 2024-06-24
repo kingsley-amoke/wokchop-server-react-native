@@ -13,11 +13,11 @@ const GuarantorSchema = new mongoose.Schema({
 
 const skillsSchema = new mongoose.Schema({
   name: {
-    type: "String",
+    type: String,
     required: true,
   },
   level: {
-    type: "String",
+    type: String,
     required: true,
   },
 });
@@ -27,6 +27,18 @@ const statusSchema = new mongoose.Schema({
   isVIP: Boolean,
 });
 
+const locationSchema = new mongoose.Schema({
+  country: {type: String, default: 'Nigeria'},
+  state: String,
+  lga: String,
+})
+
+const userBankSchema = new mongoose.Schema({
+    bank: String,
+    accountName: String,
+    accountNumber: String,
+})
+
 const userSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
@@ -35,7 +47,8 @@ const userSchema = new mongoose.Schema({
   bio: { type: String },
   role: { type: String },
   address: { type: String },
-  location: String,
+  location: locationSchema,
+  address: { type: String },
   nin: { type: String },
   image: { type: String },
   phone: { type: String },
@@ -48,6 +61,7 @@ const userSchema = new mongoose.Schema({
   jobs: [jobSchema],
   skills: [String],
   notifications: [notificationSchema],
+  bankDetails: userBankSchema
 });
 
 module.exports = userSchema;

@@ -1,5 +1,11 @@
 const mongoose = require('mongoose')
 
+const locationSchema = new mongoose.Schema({
+    country: {type: String, default: 'Nigeria'},
+    state: String,
+    lga: String,
+  })
+
 
 const jobSchema = new mongoose.Schema({
     title: {
@@ -10,10 +16,7 @@ const jobSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    location: {
-        type: String,
-        required: true
-    },
+    location: locationSchema,
     minPay: {
         type: Number,
         required: true
