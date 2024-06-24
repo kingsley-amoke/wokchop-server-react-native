@@ -12,6 +12,7 @@ const { CategoryRouter } = require("./src/routes/categoryRoutes");
 const upload = require("./src/helpers/cloudinary");
 const { imageRouter } = require("./src/routes/imageRoutes");
 const { notificationRouter } = require("./src/routes/notificationRouter");
+const { RecruitmentRouter } = require("./src/routes/recruitmentRoutes");
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ app.use(jobRouter);
 app.use(CategoryRouter)
 app.use(imageRouter);
 app.use(notificationRouter);
+app.use(RecruitmentRouter)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`);
