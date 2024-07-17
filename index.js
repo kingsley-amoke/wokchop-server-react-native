@@ -2,14 +2,12 @@ const express = require("express");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const multer = require("multer");
 
 const db = require("./src/helpers/db");
-const UserController = require("./src/controllers/userController");
 const { userRouter } = require("./src/routes/userRouter");
 const { jobRouter } = require("./src/routes/jobRouter");
-const { generateAccessToken } = require("./src/auth/token");
 const { CategoryRouter } = require("./src/routes/categoryRoutes");
-const upload = require("./src/helpers/cloudinary");
 const { imageRouter } = require("./src/routes/imageRoutes");
 const { notificationRouter } = require("./src/routes/notificationRouter");
 const { RecruitmentRouter } = require("./src/routes/recruitmentRoutes");
@@ -25,7 +23,24 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 db();
-upload()
+
+const storage = multer.diskStorage({
+  destination: function(req, file, cb){
+    cb(null, './uploads')
+  },
+  filename: function(req, file, cb){
+    cb(null, file.originalname)
+  }
+})
+
+const upload = multer({storage})
+
+
+
+app.post('/api/upload', upload.single('image'), (req, res)=>{
+  console.log(req.file)
+  res.json(req.file)
+})
 
 app.use(userRouter);
 app.use(jobRouter);
